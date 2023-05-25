@@ -4,6 +4,10 @@ import { app, protocol, BrowserWindow,Menu } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
+const path = require('path')
+import eventRegister from './event'
+
+
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -19,11 +23,12 @@ async function createWindow() {
     frame: false,
     webPreferences: {
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
-      contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION
+      contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
+      preload: path.join(__dirname, '../src/preload.js')
     }
   })
+  eventRegister(win)
   Menu.setApplicationMenu(null)
-
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)

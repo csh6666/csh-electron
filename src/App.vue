@@ -8,15 +8,15 @@
          <router-view></router-view>
       </div>
       <div class="set-btn">
-         <Icon type="md-remove" />
-         <Icon type="ios-square-outline" />
-         <Icon type="ios-close" />
+         <Icon type="ios-close" @click="sendMessage('close')" />
+         <Icon type="ios-square-outline" size="12" @click="sendMessage('resize')" />
+         <Icon type="md-remove"  size="12" @click="sendMessage('miniSize')"/>
       </div>
    </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref} from 'vue'
 const menu=[
    {id:'1',img:require('@/assets/chat.png'),active:require('@/assets/chat_active.png'),route:'/'},
    {id:'2',img:require('@/assets/user.png'),active:require('@/assets/user_active.png'),route:'/'},
@@ -25,6 +25,15 @@ const menu=[
    {id:'5',img:require('@/assets/moment.png'),active:require('@/assets/moment_active.png'),route:'/'},
 ]
 const id = ref('1')
+const sendMessage=async (key)=>{
+   const callback={
+      close:()=>{window.EventHandle.close()},
+      resize:()=>{window.EventHandle.resize()},
+      miniSize:()=>{window.EventHandle.miniSize()},
+   }
+   callback[key]()
+}
+
 </script>
 
 <style lang="scss">
@@ -71,6 +80,9 @@ const id = ref('1')
       height: 25px;
       text-align: right;
       line-height: 25px;
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
       i{
          margin: 0 10px;
          font-size: 16px;
