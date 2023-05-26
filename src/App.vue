@@ -51,7 +51,7 @@ const sendMessage=async (key)=>{
    display: flex;
    .left-menu{
       width: 50px;
-      background-color: #141111;
+      background-color: #2e2e2e;
       flex-shrink: 1;
       padding-top: 25px;
       .user-head{
@@ -60,6 +60,7 @@ const sendMessage=async (key)=>{
          display: block;
          margin: auto;
          margin-top: 20px;
+         cursor: pointer;
       }
       .menu-item{
          width: 24px;
@@ -67,11 +68,12 @@ const sendMessage=async (key)=>{
          display: block;
          margin: auto;
          margin-top: 20px;
+         cursor: pointer;
       }
    }
    .content-view{
       flex:1;
-      padding-top: 25px;
+      // padding-top: 25px;
    }
    .set-btn{
       position: absolute;
