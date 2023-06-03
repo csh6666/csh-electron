@@ -7,100 +7,12 @@
          <span class="add-btn">+</span>
       </div>
       <div class="user-list">
-         <div class="user active">
-            <img class="user-head" src="../../assets/user.jpg">
+         <div class="user" :class="activeId==item.id?'active':''" v-for="item in user" :key="item.id" @click="selectItem(item)">
+            <img class="user-head" :src="item.head">
             <div class="user-info">
-               <div class="name">小红</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
-            </div>
-         </div>
-         <div class="user">
-            <img class="user-head" src="../../assets/user1.jpg">
-            <div class="user-info">
-               <div class="name">小杰</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
-            </div>
-         </div>
-         <div class="user">
-            <img class="user-head" src="../../assets/user.jpg">
-            <div class="user-info">
-               <div class="name">小红</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
-            </div>
-         </div>
-         <div class="user">
-            <img class="user-head" src="../../assets/user1.jpg">
-            <div class="user-info">
-               <div class="name">小杰</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
-            </div>
-         </div>
-         <div class="user">
-            <img class="user-head" src="../../assets/user.jpg">
-            <div class="user-info">
-               <div class="name">小红</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
-            </div>
-         </div>
-         <div class="user">
-            <img class="user-head" src="../../assets/user1.jpg">
-            <div class="user-info">
-               <div class="name">小杰</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
-            </div>
-         </div>
-         <div class="user">
-            <img class="user-head" src="../../assets/user.jpg">
-            <div class="user-info">
-               <div class="name">小红</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
-            </div>
-         </div>
-         <div class="user">
-            <img class="user-head" src="../../assets/user1.jpg">
-            <div class="user-info">
-               <div class="name">小杰</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
-            </div>
-         </div>
-         <div class="user">
-            <img class="user-head" src="../../assets/user.jpg">
-            <div class="user-info">
-               <div class="name">小红</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
-            </div>
-         </div>
-         <div class="user">
-            <img class="user-head" src="../../assets/user.jpg">
-            <div class="user-info">
-               <div class="name">小红</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
-            </div>
-         </div>
-         <div class="user">
-            <img class="user-head" src="../../assets/user.jpg">
-            <div class="user-info">
-               <div class="name">小红</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
-            </div>
-         </div>
-         <div class="user">
-            <img class="user-head" src="../../assets/user.jpg">
-            <div class="user-info">
-               <div class="name">小红</div>
-               <span class="time">14：25</span>
-               <div class="message">好的</div>
+               <div class="name">{{item.username}}</div>
+               <span class="time">{{item.time}}</span>
+               <div class="message">{{item.content}}</div>
             </div>
          </div>
       </div>
@@ -112,9 +24,33 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import {ref,reactive} from 'vue'
 import ChatPage from '@/components/ChatPage.vue'
 const keyword=ref('')
+const activeId=ref('1')
+const user=reactive([
+   {id:'1',username:'小红',time:'14：25',content:'好的',head:require('../../assets/user.jpg')},
+   {id:'2',username:'小杰',time:'14：25',content:'好的',head:require('../../assets/user1.jpg')},
+   {id:'3',username:'小红',time:'14：25',content:'好的',head:require('../../assets/user.jpg')},
+   {id:'4',username:'小杰',time:'14：25',content:'好的',head:require('../../assets/user1.jpg')},
+   {id:'5',username:'小红',time:'14：25',content:'好的',head:require('../../assets/user.jpg')},
+   {id:'6',username:'小杰',time:'14：25',content:'好的',head:require('../../assets/user1.jpg')},
+   {id:'7',username:'小红',time:'14：25',content:'好的',head:require('../../assets/user.jpg')},
+   {id:'8',username:'小杰',time:'14：25',content:'好的',head:require('../../assets/user1.jpg')},
+   {id:'9',username:'小红',time:'14：25',content:'好的',head:require('../../assets/user.jpg')},
+   {id:'10',username:'小杰',time:'14：25',content:'好的',head:require('../../assets/user1.jpg')},
+   {id:'11',username:'小红',time:'14：25',content:'好的',head:require('../../assets/user.jpg')},
+   {id:'12',username:'小杰',time:'14：25',content:'好的',head:require('../../assets/user1.jpg')},
+   {id:'13',username:'小红',time:'14：25',content:'好的',head:require('../../assets/user.jpg')},
+   {id:'14',username:'小杰',time:'14：25',content:'好的',head:require('../../assets/user1.jpg')},
+   {id:'15',username:'小红',time:'14：25',content:'好的',head:require('../../assets/user.jpg')},
+   {id:'16',username:'小杰',time:'14：25',content:'好的',head:require('../../assets/user1.jpg')},
+   {id:'17',username:'小红',time:'14：25',content:'好的',head:require('../../assets/user.jpg')},
+   {id:'18',username:'小杰',time:'14：25',content:'好的',head:require('../../assets/user1.jpg')},
+]);
+const selectItem=(item)=>{
+   activeId.value=item.id;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -169,8 +105,8 @@ const keyword=ref('')
             display: flex;
             align-items: center;
             .user-head{
-               width: 3rem;
-               height: 3rem;
+               width: 2.5rem;
+               height: 2.5rem;
             }
             .user-info{
                flex: 1;

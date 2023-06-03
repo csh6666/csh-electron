@@ -27,6 +27,13 @@
          border-radius: 2px;
          background-color: #fff;
       }
+      textarea,input{
+         resize: none;  /* 禁止textarea调整大小功能（去掉textarea元素右下角的小三角）； */
+         -webkit-appearance: none ; /* 是为了去除内阴影样式，但是缺点是不可输入； */
+         -webkit-user-select: auto;  /* 解决输入问题； */
+         outline: none; /* 去除聚焦边框； */
+      }
+
     </style>
   </head>
   <body>

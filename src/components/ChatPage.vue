@@ -11,6 +11,18 @@
             </div>
          </div>
       </div>
+      <div class="model-box">
+         <div class="tools">
+            <img class="tool-logo" :src="require('@/assets/smile.png')">
+            <img class="tool-logo" :src="require('@/assets/smile.png')">
+            <img class="tool-logo" :src="require('@/assets/smile.png')">
+            <img class="tool-logo" :src="require('@/assets/smile.png')">
+            <img class="tool-logo right" :src="require('@/assets/smile.png')">
+            <img class="tool-logo right" :src="require('@/assets/smile.png')">
+         </div>
+         <textarea  autofocus></textarea>
+         <span>发送(S)</span>
+      </div>
    </div>
 </template>
  
@@ -55,7 +67,7 @@ const chatData = [
 
    .chat-box {
       width: 100%;
-      height: calc(100% - 3rem);
+      height: calc(75% - 3rem);
 
       .chat-item {
          font-size: 14px;
@@ -121,6 +133,49 @@ const chatData = [
       }
 
 
+   }
+   .model-box{
+      width: 100%;
+      height: 25%;
+      border-top: 1px solid #e7e5e5;
+      .tools{
+         width: 100%;
+         height: 2rem;
+         padding: 0 1rem;
+         .tool-logo{
+            width: 1.5rem;
+            height: 1.5rem;
+            display: inline-block;
+            margin-right: 0.5rem;
+            &:nth-last-of-type(2){
+               margin-right: 0 !important;
+            }
+         }
+         .right{
+            float: right;
+         }
+      }
+      textarea{
+         width: 100%;
+         height: calc(100% - 6rem);
+         padding: 0.2rem 1rem;
+         border: none;
+         box-sizing: border-box;
+         background-color: #f5f5f5;
+         font-size: 14px;
+      }
+      span{
+         width: 5rem;
+         height: 2rem;
+         line-height: 2rem;
+         text-align: center;
+         float: right;
+         background-color: #e9e9e9;
+         border-radius: 3px;
+         margin-right: 1rem;
+         font-size: 14px;
+         color: #07c160;
+      }
    }
 }
 </style>
